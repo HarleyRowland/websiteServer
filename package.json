@@ -1,23 +1,26 @@
 {
-  "name": "websiteserver",
-  "version": "1.0.0",
-  "description": "A server for my website",
-  "main": "server.js",
+  "name": "node-js-getting-started",
+  "version": "0.2.5",
+  "description": "A sample Node.js app using Express 4",
+  "engines": {
+    "node": "5.9.1"
+  },
+  "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "ejs": "2.4.1",
+    "express": "4.13.3"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/HarleyRowland/websiteServer.git"
+    "url": "https://github.com/heroku/node-js-getting-started"
   },
-  "author": "Harley Rowland",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/HarleyRowland/websiteServer/issues"
-  },
-  "homepage": "https://github.com/HarleyRowland/websiteServer#readme",
-  "dependencies": {
-    "express": "^4.14.0"
-  }
+  "keywords": [
+    "node",
+    "heroku",
+    "express"
+  ],
+  "license": "MIT"
 }
