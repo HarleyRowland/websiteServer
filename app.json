@@ -3,5 +3,5 @@
   "description": "A Webserverfor my personal website, harleyrowland.com",
   "repository": "https://github.com/harleyrowland/websiteServer",
   "logo": "http://node-js-sample.herokuapp.com/node.svg",
-  "keywords": ["node", "express"],
+  "keywords": ["node", "express"]
 }
