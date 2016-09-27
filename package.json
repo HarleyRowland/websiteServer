@@ -1,7 +1,7 @@
 {
-  "name": "node-js-getting-started",
-  "version": "0.2.5",
-  "description": "A sample Node.js app using Express 4",
+  "name": "websiteServer",
+  "version": "1.0.1",
+  "description": "Webserver for personal website",
   "engines": {
     "node": "5.9.1"
   },
@@ -10,7 +10,9 @@
     "start": "node index.js"
   },
   "dependencies": {
-    "express": "4.13.3"
+    "express": "4.13.3",
+    "nodemailer": "~1.4.0",
+    "nodemailer-smtp-transport":"~1.0.3"
   },
   "repository": {
     "type": "git",
