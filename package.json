@@ -10,10 +10,11 @@
     "start": "node index.js"
   },
   "dependencies": {
-    "emailjs": "^1.0.8",
     "express": "4.13.3",
+    "http-status": "^0.2.3",
     "nodemailer": "~1.4.0",
-    "nodemailer-smtp-transport": "~1.0.3"
+    "nodemailer-smtp-transport": "~1.0.3",
+    "xoauth2": "^1.2.0"
   },
   "repository": {
     "type": "git",

@@ -1,26 +1,41 @@
 var nodemailer = require('nodemailer');
 var smtpTransport = require('nodemailer-smtp-transport');
-var config = require('../config.js')
+var config = require('../config.js');
+var xoauth2 = require('xoauth2');
+var httpStatus = require('http-status');
 
 module.exports = {
-  sendEmail: function(){
-    emailjs = require('emailjs');
+  sendEmail: function(name, email, subject, body, callback){
 
-    var server = emailjs.server.connect({
-        user:"harleyrowland17@gmail.com",
-        password: config.gmailPassword,
-        host:"smtp.gmail.com",
-        ssl:true
-      });
+    // login
+    var transporter = nodemailer.createTransport({
+        service: 'gmail',
+        auth: {
+            xoauth2: xoauth2.createXOAuth2Generator({
+                user: config.gmail.user,
+                clientId: config.gmail.clientId,
+                clientSecret: config.gmail.clientSecret,
+                refreshToken: config.gmail.refreshToken,
+                accessToken: config.gmail.accessToken
+            })
+        }
+    });
 
-    server.send({
-          text: "woo",
-          from:"Harley <harleyrowland17@gmail.com>",
-          to:"harleyrowland17@gmail.com",
-          subject:"Subject"
-        },
-        function (err, message) {   
-          console.log(err, message);
-      });
+    var mailOptions = {
+      to: 'harleyrowland17@gmail.com',
+      subject: name + ' - ' + subject,
+      text: 'Message from ' + ' (' + email+ ') \n - ' + body,
+      html: 'Message from ' + ' (' + email+ ') </br></br>' + body
+    };
+
+    transporter.sendMail(mailOptions, function(err, info){
+      if(err){
+          callback(err);
+          console.log(err);
+      }else{
+          console.log('Message sent: ' + info.response);
+          callback(httpStatus.OK);
+      }
+    });
   }
 }
