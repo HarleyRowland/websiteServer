@@ -30,11 +30,11 @@ module.exports = {
 
     transporter.sendMail(mailOptions, function(err, info){
       if(err){
-          callback(err);
           console.log(err);
+          return callback(err);
       }else{
           console.log('Message sent: ' + info.response);
-          callback(httpStatus.OK);
+          return callback(httpStatus.OK);
       }
     });
   }
