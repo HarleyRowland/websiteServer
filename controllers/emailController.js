@@ -24,8 +24,8 @@ module.exports = {
     var mailOptions = {
       to: 'harleyrowland17@gmail.com',
       subject: name + ' - ' + subject,
-      text: 'Message from ' + ' (' + email+ ') \n - ' + body,
-      html: 'Message from ' + ' (' + email+ ') </br></br>' + body
+      text: 'Message from ' + name + ' (' + email+ ') \n - ' + body,
+      html: 'Message from ' + name + ' (' + email+ ') </br></br>' + body
     };
 
     transporter.sendMail(mailOptions, function(err, info){
