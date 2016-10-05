@@ -1,8 +1,10 @@
 var express = require('express');
 var app = express();
 var httpStatus = require('http-status');
+var python = require('python-shell');
 
 var emailController = require('./controllers/emailController');
+var duolingoController = require('./controllers/duolingoController');
 
 app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
@@ -12,6 +14,13 @@ app.use(function(req, res, next) {
 
 app.get('/', function (req, res) {
   res.send('Express server serving harleyrowland.com.');
+});
+
+app.get('/duolingo', function (req, res) {
+  var callback = function(data){
+    res.send(data);
+  }
+  duolingoController.getData(callback);
 });
 
 app.get('/email', function(req, res){
