@@ -5,6 +5,8 @@ var python = require('python-shell');
 module.exports = {
   getData: function(callback){
     python.run('duoScript.py', function (err, results) { 
+      console.log(err);
+      console.log(results);
       var res = JSON.parse(results);
       var language = res.language_data.es.language_string;
       var streak = res.language_data.es.streak;
