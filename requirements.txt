@@ -1,2 +1,2 @@
-duolingo==0.1
-simplejson==0.1
+duolingo-api==0.3
+simplejson==3.8.2
