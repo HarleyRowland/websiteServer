@@ -70,7 +70,7 @@ var getLastGame = function(cb){
 
 var getChamp = function(data, cb){
   options.host = 'global.api.pvp.net'
-  options.path = '/api/lol/static-data/euw/v1.2/champion/222?api_key=RGAPI-06E2404A-7D0D-47AE-9B67-60BA7076474F';
+  options.path = '/api/lol/static-data/euw/v1.2/champion/'+ data.championId+'?api_key=RGAPI-06E2404A-7D0D-47AE-9B67-60BA7076474F';
 
   callback = function(response) {
     var str = ''
