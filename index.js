@@ -6,6 +6,7 @@ var python = require('python-shell');
 var emailController = require('./controllers/emailController');
 var duolingoController = require('./controllers/duolingoController');
 var leagueController = require('./controllers/leagueController')
+var githubController = require('./controllers/githubController')
 
 app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
@@ -29,6 +30,13 @@ app.get('/leagueOfLegends', function (req, res) {
     res.send(data);
   }
   leagueController.getData(callback);
+});
+
+app.get('/github', function (req, res) {
+  var callback = function(data){
+    res.send(data);
+  }
+  githubController.getData(callback);
 });
 
 app.get('/email', function(req, res){
