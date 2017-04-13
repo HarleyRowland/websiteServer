@@ -45,7 +45,20 @@ app.get('/email', function(req, res){
   }
   var query = req.query;
   if(req && query && query.name && query.email && query.subject && query.body) {
-  	emailController.sendEmail(query.name, query.email, query.subject, query.body, callback);
+  	emailController.sendEmail("harleyrowland17@gmail.com", query.name, query.email, query.subject, query.body, callback);
+  } else {
+    return callback(httpStatus.BAD_REQUEST);
+  }
+});
+
+app.get('/kcEmail', function(req, res){
+  var callback = function(data){
+    res.send(data);
+  }
+  var query = req.query;
+
+  if(req && query && query.name && query.email && query.date && query.number) {
+    emailController.kcSendEmail("harleyrowland17@gmail.com", query, callback);
   } else {
     return callback(httpStatus.BAD_REQUEST);
   }
