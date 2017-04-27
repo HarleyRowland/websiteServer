@@ -58,7 +58,7 @@ app.get('/kcEmail', function(req, res){
   var query = req.query;
 
   if(req && query && query.name && query.email && query.date && query.number) {
-    emailController.kcSendEmail("harleyrowland17@gmail.com", query, callback);
+    emailController.kcSendEmail("kentcountyhogroast@outlook.com", query, callback);
   } else {
     return callback(httpStatus.BAD_REQUEST);
   }
