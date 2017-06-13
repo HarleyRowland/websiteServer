@@ -45,7 +45,7 @@ app.get('/email', function(req, res){
   }
   var query = req.query;
   if(req && query && query.name && query.email && query.subject && query.body) {
-  	emailController.sendEmail("harleyrowland17@gmail.com", query.name, query.email, query.subject, query.body, callback);
+  	emailController.sendEmail("harleyrowland17@gmail.com", query.name, query.email, query.number, query.subject, query.body, callback);
   } else {
     return callback(httpStatus.BAD_REQUEST);
   }

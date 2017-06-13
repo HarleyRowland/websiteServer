@@ -5,7 +5,7 @@ var xoauth2 = require('xoauth2');
 var httpStatus = require('http-status');
 
 module.exports = {
-  sendEmail: function(sendTo, name, email, subject, body, callback){
+  sendEmail: function(sendTo, name, email, number, subject, body, callback){
 
     // login
     var transporter = nodemailer.createTransport({
@@ -21,11 +21,14 @@ module.exports = {
         }
     });
 
+    var numberString = ")"
+    if(number != null) numberString = '/' + number + ')'
+
     var mailOptions = {
       to: sendTo,
       subject: name + ' - ' + subject,
-      text: 'Message from ' + name + ' (' + email+ ') \n - ' + body,
-      html: 'Message from ' + name + ' (' + email+ ') </br></br>' + body
+      text: 'Message from ' + name + ' (' + email + numberString + '\n - ' + body,
+      html: 'Message from ' + name + ' (' + email + numberString + '</br></br>' + body
     };
 
     transporter.sendMail(mailOptions, function(err, info){
