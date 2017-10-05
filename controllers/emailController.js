@@ -99,7 +99,7 @@ module.exports = {
 
     var mailOptions = {
       to: sendTo,
-      subject: body.subject,
+      subject: query.subject,
       text: 'Message from ' + query.name + ' (' + query.email+ ') \n\n\r\r - Telephone number: ' + query.number + '\n\n\r\r' + query.body,
       html: 'Message from ' + query.name + ' (' + query.email+ ') </br> - Telephone number: ' + query.number + '</br></br>' + query.body,
     };
