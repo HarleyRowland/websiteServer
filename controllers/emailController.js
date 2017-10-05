@@ -78,7 +78,7 @@ module.exports = {
       }
     });
   },
-  kcSendEmail: function(sendTo, query, callback){
+  pbkSendEmail: function(sendTo, query, callback){
 
     // login
     var transporter = nodemailer.createTransport({
