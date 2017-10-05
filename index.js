@@ -64,6 +64,19 @@ app.get('/kcEmail', function(req, res){
   }
 });
 
+app.get('/pbkEmail', function(req, res){
+  var callback = function(data){
+    res.send(data);
+  }
+  var query = req.query;
+
+  if(req && query && query.name && query.email && query.number && query.subject && query.body) {
+    emailController.pbkSendEmail("enquiries@pbkltd.co.uk", query, callback);
+  } else {
+    return callback(httpStatus.BAD_REQUEST);
+  }
+});
+
 
 app.set('port', (process.env.PORT || 5000));
 
